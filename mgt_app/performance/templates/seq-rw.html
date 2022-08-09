@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      href="{{url_for('static',filename='layui/css/layui.css')}}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      body {
+        margin: 10px;
+      }
+
+      .demo-carousel {
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layui-row">
+      <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+          <li class="layui-this">File mode</li>
+          <li>Form mode</li>
+        </ul>
+        <div class="layui-tab-content">
+          <div class="layui-tab-item layui-show">
+            <fieldset
+              class="layui-elem-field site-demo-button"
+              style="margin-top: 20px; margin-left: 20px; width: 98%;"
+            >
+              <legend>Test file of Seq_rw scenario</legend>
+              <div
+                class="layui-upload-drag"
+                id="uploadSeqRW"
+                style="width: 1100px;"
+              >
+                <i class="layui-icon"></i>
+                <p>点击上传，或将文件拖拽到此处</p>
+              </div>
+            </fieldset>
+          </div>
+          <div class="layui-tab-item">
+            <fieldset
+              class="layui-elem-field site-demo-button"
+              style="margin-top: 20px; margin-left: 20px; width: 98%;"
+            >
+              <legend>Test case of Seq_rw scenario</legend>
+              <form class="layui-form" action="">
+                <div class="layui-form-item">
+                  <label class="layui-form-label">fio_runtime</label>
+                  <div class="layui-input-inline">
+                    <input
+                      type="text"
+                      placeholder="选填"
+                      name="fio_runtime"
+                      autocomplete="off"
+                      class="layui-input"
+                      lay-verify="not_require_number"
+                    />
+                  </div>
+                  <label class="layui-form-label">run_count</label>
+                  <div class="layui-input-inline">
+                    <input
+                      type="text"
+                      placeholder="选填"
+                      name="run_count"
+                      autocomplete="off"
+                      class="layui-input"
+                      lay-verify="not_require_number"
+                    />
+                  </div>
+                  <label class="layui-form-label">table_name</label>
+                  <div class="layui-input-inline">
+                    <input
+                      type="text"
+                      placeholder="选填"
+                      name="table_name"
+                      autocomplete="off"
+                      class="layui-input"
+                    />
+                  </div>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-inline">
+                    <label class="layui-form-label">device_type</label>
+                    <div class="layui-input-inline">
+                      <select name="device_type">
+                        <option value="block" selected>block</option>
+                        <option value="filesystem">filesystem</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="layui-form-item">
+                  <label class="layui-form-label">device_fs</label>
+                  <div class="layui-input-inline">
+                    <textarea
+                      placeholder="请输入正确值"
+                      name="device_fs"
+                      class="layui-textarea"
+                      lay-verify="required"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="layui-form-item">
+                  <label class="layui-form-label">DB_IP</label>
+                  <div class="layui-input-inline">
+                    <input
+                      type="text"
+                      placeholder="请输入正确值"
+                      name="DB_IP"
+                      autocomplete="off"
+                      class="layui-input"
+                      lay-verify="required|ip"
+                    />
+                  </div>
+                  <label class="layui-form-label">DB_port</label>
+                  <div class="layui-input-inline">
+                    <input
+                      type="text"
+                      placeholder="请输入正确值"
+                      name="DB_port"
+                      autocomplete="off"
+                      class="layui-input"
+                      lay-verify="required|number"
+                    />
+                  </div>
+                </div>
+                <div class="layui-form-item">
+                  <label class="layui-form-label">test_node_IP</label>
+                  <div class="layui-input-inline">
+                    <input
+                      type="text"
+                      placeholder="请输入正确值"
+                      name="test_node_IP"
+                      autocomplete="off"
+                      class="layui-input"
+                      lay-verify="required|ip"
+                    />
+                  </div>
+                  <label class="layui-form-label">test_node_username</label>
+                  <div class="layui-input-inline">
+                    <input
+                      type="text"
+                      placeholder="请输入正确值"
+                      name="test_node_username"
+                      autocomplete="off"
+                      class="layui-input"
+                      lay-verify="required"
+                    />
+                  </div>
+                  <label class="layui-form-label">test_node_password</label>
+                  <div class="layui-input-inline">
+                    <input
+                      type="text"
+                      placeholder="请输入正确值"
+                      name="test_node_password"
+                      autocomplete="off"
+                      class="layui-input"
+                      lay-verify="required"
+                    />
+                  </div>
+                </div>
+                <div class="layui-form-item">
+                  <button
+                    type="submit"
+                    class="layui-btn layui-btn-fluid layui-btn-radius"
+                    lay-filter="spof"
+                    lay-submit
+                  >
+                    Create
+                  </button>
+                </div>
+              </form>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="layui-row"
+      style="margin-top: 20px; margin-left: 20px; margin-right: 20px;"
+    >
+      <div class="layui-col-xs12">
+        <div class="grid-demo grid-demo-bg1">
+          <table
+            class="layui-hide"
+            id="seqRWTableRI"
+            lay-filter="seqRWTableRI"
+          ></table>
+        </div>
+        <div class="grid-demo grid-demo-bg1">
+          <table
+            class="layui-hide"
+            id="seqRWTableRM"
+            lay-filter="seqRWTableRM"
+          ></table>
+        </div>
+        <div class="grid-demo grid-demo-bg1">
+          <table
+            class="layui-hide"
+            id="seqRWTableWI"
+            lay-filter="seqRWTableWI"
+          ></table>
+        </div>
+        <div class="grid-demo grid-demo-bg1">
+          <table
+            class="layui-hide"
+            id="seqRWTableWM"
+            lay-filter="seqRWTableWM"
+          ></table>
+        </div>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='personal/js/JQuery.js')}}"
+    ></script>
+    <script src="{{ url_for('static',filename='layui/layui.all.js') }}"></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='personal/js/basic-sundry.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='personal/js/seq-rw.js')}}"
+    ></script>
+  </body>
+</html>
