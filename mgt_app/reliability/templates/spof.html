@@ -11,6 +11,12 @@
       rel="stylesheet"
       type="text/css"
     />
+    <!-- multiplestep.css-->
+    <link
+      href="{{url_for('static',filename='personal/css/multiplestep.css')}}"
+      rel="stylesheet"
+      type="text/css"
+    />
     <style>
       body {
         margin: 10px;
@@ -50,258 +56,335 @@
             >
               <legend>Test case of Spof scenario</legend>
               <form class="layui-form" action="">
-                <div class="layui-form-item">
-                  <label class="layui-form-label">test_name</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="test_name"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required"
-                    />
+                <section id="step-1" class="form-step"> <!-- Add the section for Step 1 Content -->
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">test_name</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="test_name"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="required"
+                      />
+                    </div>
+                    <label class="layui-form-label">test_times</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="test_times"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="required|number"
+                      />
+                    </div>
                   </div>
-                  <label class="layui-form-label">test_times</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="test_times"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required|number"
-                    />
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">storageclass_name</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="storageclass_name"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="required"
+                      />
+                    </div>
+                    <label class="layui-form-label">pvc_size</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="pvc_size"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="required"
+                      />
+                    </div>
+                    <label class="layui-form-label">go_meter_bs</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="go_meter_bs"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="required"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div class="layui-form-item">
-                  <label class="layui-form-label">storageclass_name</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="storageclass_name"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required"
-                    />
-                  </div>
-                  <label class="layui-form-label">pvc_size</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="pvc_size"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required"
-                    />
-                  </div>
-                  <label class="layui-form-label">go_meter_bs</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="go_meter_bs"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required"
-                    />
-                  </div>
-                </div>
-                <div class="layui-form-item">
-                  <label class="layui-form-label">test_action</label>
-                  <div class="layui-input-inline">
-                    <select name="test_action" lay-filter="test_action">
-                      <option value="node_down" selected>node_down</option>
-                      <option value="switch_port_down">switch_port_down</option>
-                      <option value="interface_down">interface_down</option>
-                      <option value="manual">manual</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="layui-form-item" id="down_host">
-                  <label class="layui-form-label">down_host</label>
-                  <div class="layui-input-inline">
-                    <textarea
-                      placeholder="请输入正确值"
-                      name="down_host"
-                      class="layui-textarea"
-                    ></textarea>
-                  </div>
-                </div>
-                <div class="layui-form-item" id="bmc">
-                  <label class="layui-form-label">bmc_ip</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="bmc_ip"
-                      autocomplete="off"
-                      class="layui-input"
-                    />
-                  </div>
-                  <label class="layui-form-label">bmc_user</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="bmc_user"
-                      autocomplete="off"
-                      class="layui-input"
-                    />
-                  </div>
-                  <label class="layui-form-label">bmc_password</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="bmc_password"
-                      autocomplete="off"
-                      class="layui-input"
-                    />
-                  </div>
-                </div>
-                <div class="layui-form-item" id="down_switch" hidden>
-                  <label class="layui-form-label">down_switch</label>
-                  <div class="layui-input-inline">
-                    <textarea
-                      placeholder="请输入正确值"
-                      name="down_switch"
-                      class="layui-textarea"
-                    ></textarea>
-                  </div>
-                </div>
-                <div class="layui-form-item" id="down_interface" hidden>
-                  <label class="layui-form-label">down_interface</label>
-                  <div class="layui-input-inline">
-                    <textarea
-                      placeholder="请输入正确值"
-                      name="down_interface"
-                      class="layui-textarea"
-                    ></textarea>
-                  </div>
-                </div>
-                <div class="layui-form-item" id="manual" hidden>
-                  <label class="layui-form-label">waiting_time</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="waiting_time"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="not_require_number"
-                    />
-                  </div>
-                </div>
-                <div class="layui-form-item">
-                  <label class="layui-form-label">DB_IP</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="DB_IP"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required|ip"
-                    />
-                  </div>
-                  <label class="layui-form-label">DB_port</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="DB_port"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required|number"
-                    />
-                  </div>
-                </div>
-                <div class="layui-form-item">
-                  <label class="layui-form-label">mail_receiver</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="mail_receiver"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="not_require_email"
-                    />
-                  </div>
-                </div>
-                <hr class="layui-border-red" />
-                <div class="layui-form-item">
-                  <label class="layui-form-label">test_node_hostname</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="test_node_hostname"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required"
-                    />
-                  </div>
-                  <label class="layui-form-label">test_node_IP</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="test_node_IP"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required|ip"
-                    />
-                  </div>
-                </div>
-                <div class="layui-form-item">
-                  <label class="layui-form-label">test_node_port</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="test_node_port"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required|number"
-                    />
-                  </div>
-                  <label class="layui-form-label">test_node_password</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="test_node_password"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required"
-                    />
-                  </div>
-                  <div class="layui-input-inline">
+                  <div class="layui-form-item">
                     <button
-                      type="button"
-                      class="layui-btn layui-btn-primary layui-btn-sm"
-                      lay-active="addHost"
-                    >
-                      <i class="layui-icon">&#xe654;</i>
+                        type="button"
+                        class="layui-btn layui-btn-fluid layui-btn-radius"
+                        lay-filter="spof"
+                        lay-submit
+                        step_number="2"> <!-- Add the step_number = 2 (next) -->
+                      Next
+                    </button>
+                    <!--						<button type="reset" class="layui-btn" >重置</button>-->
+                  </div>
+                </section>   <!-- Add the section for Step 1 Content -->
+                <section id="step-2" class="form-step d-none"> <!-- Add the section for Step 2 Content -->
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">test_action</label>
+                    <div class="layui-input-inline">
+                      <select name="test_action" lay-filter="test_action">
+                        <option value="node_down" selected>node_down</option>
+                        <option value="switch_port_down">switch_port_down</option>
+                        <option value="interface_down">interface_down</option>
+                        <option value="manual">manual</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="layui-form-item" id="down_host">
+                    <label class="layui-form-label">down_host</label>
+                    <div class="layui-input-inline">
+                      <textarea
+                        placeholder="请输入正确值"
+                        name="down_host"
+                        class="layui-textarea"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="layui-form-item" id="bmc">
+                    <label class="layui-form-label">bmc_ip</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="bmc_ip"
+                        autocomplete="off"
+                        class="layui-input"
+                      />
+                    </div>
+                    <label class="layui-form-label">bmc_user</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="bmc_user"
+                        autocomplete="off"
+                        class="layui-input"
+                      />
+                    </div>
+                    <label class="layui-form-label">bmc_password</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="bmc_password"
+                        autocomplete="off"
+                        class="layui-input"
+                      />
+                    </div>
+                  </div>
+                  <div class="layui-form-item">
+                    <button
+                        type="button"
+                        class="layui-btn layui-btn-fluid layui-btn-radius"
+                        lay-filter="spof"
+                        lay-submit
+                        step_number="1"
+                    >                   <!-- Add the step_number = 1 (previous) -->
+                      Previous
                     </button>
                   </div>
-                </div>
+                  <div class="layui-form-item">
+                    <button
+                        type="button"
+                        class="layui-btn layui-btn-fluid layui-btn-radius"
+                        lay-filter="spof"
+                        lay-submit
+                        step_number="3"
+                    >                     <!--Add the step_number = 3(Next) -->
+                      Next
+                    </button>
+                    <!--						<button type="reset" class="layui-btn" >重置</button>-->
+                  </div>
+                </section><!-- Add the section for Step 2 Content -->
+                <section id="step-3" class="form-step d-none"> <!-- Add the section for Step 3 Content -->
+                  <div class="layui-form-item" id="down_switch" hidden>
+                    <label class="layui-form-label">down_switch</label>
+                    <div class="layui-input-inline">
+                      <textarea
+                        placeholder="请输入正确值"
+                        name="down_switch"
+                        class="layui-textarea"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="layui-form-item" id="down_interface" hidden>
+                    <label class="layui-form-label">down_interface</label>
+                    <div class="layui-input-inline">
+                      <textarea
+                        placeholder="请输入正确值"
+                        name="down_interface"
+                        class="layui-textarea"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="layui-form-item" id="manual" hidden>
+                    <label class="layui-form-label">waiting_time</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="waiting_time"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="not_require_number"
+                      />
+                    </div>
+                  </div>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">DB_IP</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="DB_IP"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="required|ip"
+                      />
+                    </div>
+                    <label class="layui-form-label">DB_port</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="DB_port"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="required|number"
+                      />
+                    </div>
+                  </div>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">mail_receiver</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="mail_receiver"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="not_require_email"
+                      />
+                    </div>
+                  </div>
+                  <div class="layui-form-item">
+                    <button
+                        type="button"
+                        class="layui-btn layui-btn-fluid layui-btn-radius"
+                        lay-filter="spof"
+                        lay-submit
+                        step_number="2"
+                    >                   <!-- Add the step_number = 2 (previous) -->
+                      Previous
+                    </button>
+                  </div>
+                  <div class="layui-form-item">
+                    <button
+                        type="button"
+                        class="layui-btn layui-btn-fluid layui-btn-radius"
+                        lay-filter="spof"
+                        lay-submit
+                        step_number="4"
+                    >                 <!-- Add the step_number = 4 (Next) -->
+                      Next
+                    </button>
+                    <!--						<button type="reset" class="layui-btn" >重置</button>-->
+                  </div>
+                </section><!-- Add the section for Step 3 Content -->
+                <section id="step-4" class="form-step d-none"> <!-- Add the section for Step 4 Content -->
+                  <hr class="layui-border-red" />
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">test_node_hostname</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="test_node_hostname"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="required"
+                      />
+                    </div>
+                    <label class="layui-form-label">test_node_IP</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="test_node_IP"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="required|ip"
+                      />
+                    </div>
+                  </div>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">test_node_port</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="test_node_port"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="required|number"
+                      />
+                    </div>
+                    <label class="layui-form-label">test_node_password</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="test_node_password"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="required"
+                      />
+                    </div>
+                    <div class="layui-input-inline">
+                      <button
+                        type="button"
+                        class="layui-btn layui-btn-primary layui-btn-sm"
+                        lay-active="addHost"
+                      >
+                        <i class="layui-icon">&#xe654;</i>
+                      </button>
+                    </div>
+                  </div>
 
-                <div id="testnode"></div>
-                <div class="layui-form-item">
-                  <button
-                    type="submit"
-                    class="layui-btn layui-btn-fluid layui-btn-radius"
-                    lay-filter="spof"
-                    lay-submit
-                  >
-                    Create
-                  </button>
-                </div>
+                  <div id="testnode"></div>
+                  <div class="layui-form-item">
+                    <button
+                        type="button"
+                        class="layui-btn layui-btn-fluid layui-btn-radius"
+                        lay-filter="spof"
+                        lay-submit
+                        step_number="3"
+                    >                   <!-- Add the step_number = 3 (previous) -->
+                      Previous
+                    </button>
+                  </div>
+                  <div class="layui-form-item">
+                    <button
+                        type="submit"
+                        class="layui-btn layui-btn-fluid layui-btn-radius1"
+                        lay-filter="spof"
+                        lay-submit
+                    ><!-- radius1區分summit、previous/next按鈕之間的區別 -->
+                      Create
+                    </button>
+                    <!--						<button type="reset" class="layui-btn" >重置</button>-->
+                  </div>
+                </section><!-- Add the section for Step 4 Content -->
               </form>
             </fieldset>
           </div>
@@ -331,6 +414,7 @@
       type="text/javascript"
       src="{{url_for('static',filename='personal/js/basic-sundry.js')}}"
     ></script>
+    <script src="{{ url_for('static',filename='personal/js/multiple-step.js') }}"></script> <!-- multiple-step.js-->
     <script
       type="text/javascript"
       src="{{url_for('static',filename='personal/js/spof.js')}}"

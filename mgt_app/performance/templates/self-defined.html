@@ -11,6 +11,7 @@
       rel="stylesheet"
       type="text/css"
     />
+    <!-- multiplestep.css-->
     <link
       href="{{url_for('static',filename='personal/css/multiplestep.css')}}"
       rel="stylesheet"
@@ -214,7 +215,7 @@
                   </div>
                   <div class="layui-form-item">
                     <button
-                        type="submit"
+                        type="button"
                         class="layui-btn layui-btn-fluid layui-btn-radius"
                         lay-filter="spof"
                         lay-submit
@@ -222,6 +223,8 @@
                     >                   <!-- Add the step_number = 2 (next) -->
                       Previous
                     </button>
+                  </div>
+                  <div class="layui-form-item">
                     <button
                         type="submit"
                         class="layui-btn layui-btn-fluid layui-btn-radius1"
@@ -260,6 +263,7 @@
     <script src="{{ url_for('static',filename='layui/layui.all.js') }}"></script>
     <script src="{{ url_for('static',filename='layui/dist/xm-select.js') }}"></script>
     <script src="{{ url_for('static',filename='personal/js/multiple-select.js') }}"></script>
+    <script src="{{ url_for('static',filename='personal/js/multiple-step.js') }}"></script><!-- multiple-step.js-->
     <script
       type="text/javascript"
       src="{{url_for('static',filename='personal/js/basic-sundry.js')}}"
