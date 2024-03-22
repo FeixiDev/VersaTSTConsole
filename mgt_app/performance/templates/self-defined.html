@@ -11,6 +11,12 @@
       rel="stylesheet"
       type="text/css"
     />
+    <!-- multiplestep.css-->
+    <link
+      href="{{url_for('static',filename='personal/css/multiplestep.css')}}"
+      rel="stylesheet"
+      type="text/css"
+    />
     <style>
       body {
         margin: 10px;
@@ -54,165 +60,182 @@
             >
               <legend>Test case of Self_defined scenario</legend>
               <form class="layui-form" action="">
-                <div class="layui-form-item">
-                  <label class="layui-form-label">fio_runtime</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="选填"
-                      name="fio_runtime"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="not_require_number"
-                    />
-                  </div>
-                  <label class="layui-form-label">run_count</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="选填"
-                      name="run_count"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="not_require_number"
-                    />
-                  </div>
-                  <label class="layui-form-label">table_name</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="选填"
-                      name="table_name"
-                      autocomplete="off"
-                      class="layui-input"
-                    />
-                  </div>
-                </div>
-                <div class="layui-form-item">
-                  <div class="layui-inline">
-                    <label class="layui-form-label">device_type</label>
+                <section id="step-1" class="form-step"> <!-- Add the section for Step 1 Content -->
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">fio_runtime</label>
                     <div class="layui-input-inline">
-                      <select name="device_type">
-                        <option value="block" selected>block</option>
-                        <option value="filesystem">filesystem</option>
-                      </select>
+                      <input
+                        type="text"
+                        placeholder="选填"
+                        name="fio_runtime"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="not_require_number"
+                      />
                     </div>
-                    <label class="layui-form-label">rw</label>
+                    <label class="layui-form-label">run_count</label>
                     <div class="layui-input-inline">
-                      <div id="rw" class="xm-select-demo"></div>
+                      <input
+                        type="text"
+                        placeholder="选填"
+                        name="run_count"
+                        autocomplete="off"
+                        class="layui-input"
+                        lay-verify="not_require_number"
+                      />
+                    </div>
+                    <label class="layui-form-label">table_name</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="选填"
+                        name="table_name"
+                        autocomplete="off"
+                        class="layui-input"
+                      />
                     </div>
                   </div>
-                </div>
-                <div class="layui-form-item">
-                  <label class="layui-form-label">device_fs</label>
-                  <div class="layui-input-inline">
-                    <textarea
-                      placeholder="请输入正确值"
-                      name="device_fs"
-                      class="layui-textarea"
-                      lay-verify="required"
-                    ></textarea>
+                  <div class="layui-form-item">
+                    <div class="layui-inline">
+                      <label class="layui-form-label">device_type</label>
+                      <div class="layui-input-inline">
+                        <select name="device_type">
+                          <option value="block" selected>block</option>
+                          <option value="filesystem">filesystem</option>
+                        </select>
+                      </div>
+                      <label class="layui-form-label">rw</label>
+                      <div class="layui-input-inline">
+                        <div id="rw" class="xm-select-demo"></div>
+                      </div>
+                    </div>
                   </div>
-                  <label class="layui-form-label">bs</label>
-                  <div class="layui-input-inline">
-                    <textarea
-                      placeholder="请输入正确值"
-                      name="bs"
-                      class="layui-textarea"
-                      lay-verify="required"
-                    ></textarea>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">device_fs</label>
+                    <div class="layui-input-inline">
+                      <textarea
+                        placeholder="请输入正确值"
+                        name="device_fs"
+                        class="layui-textarea"
+                      ></textarea>
+                    </div>
+                    <label class="layui-form-label">bs</label>
+                    <div class="layui-input-inline">
+                      <textarea
+                        placeholder="请输入正确值"
+                        name="bs"
+                        class="layui-textarea"
+                      ></textarea>
+                    </div>
                   </div>
-                </div>
-                <div class="layui-form-item">
-                  <label class="layui-form-label">numjobs</label>
-                  <div class="layui-input-inline">
-                    <textarea
-                      placeholder="请输入正确值"
-                      name="numjobs"
-                      class="layui-textarea"
-                      lay-verify="required"
-                    ></textarea>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">numjobs</label>
+                    <div class="layui-input-inline">
+                      <textarea
+                        placeholder="请输入正确值"
+                        name="numjobs"
+                        class="layui-textarea"
+                      ></textarea>
+                    </div>
+                    <label class="layui-form-label">IOdepth</label>
+                    <div class="layui-input-inline">
+                      <textarea
+                        placeholder="请输入正确值"
+                        name="IOdepth"
+                        class="layui-textarea"
+                      ></textarea>
+                    </div>
                   </div>
-                  <label class="layui-form-label">IOdepth</label>
-                  <div class="layui-input-inline">
-                    <textarea
-                      placeholder="请输入正确值"
-                      name="IOdepth"
-                      class="layui-textarea"
-                      lay-verify="required"
-                    ></textarea>
+                  <div class="layui-form-item">
+                    <button
+                        type="button"
+                        class="layui-btn layui-btn-fluid layui-btn-radius"
+                        lay-filter="spof"
+                        lay-submit
+                        step_number="2"> <!-- Add the step_number = 2 (next) -->
+                      Next
+                    </button>
+                    <!--						<button type="reset" class="layui-btn" >重置</button>-->
                   </div>
-                </div>
-                <div class="layui-form-item">
-                  <label class="layui-form-label">DB_IP</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="DB_IP"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required|ip"
-                    />
+                </section>   <!-- Add the section for Step 1 Content -->
+                <section id="step-2" class="form-step d-none"> <!-- Add the section for Step 2 Content -->
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">DB_IP</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="DB_IP"
+                        autocomplete="off"
+                        class="layui-input"
+                      />
+                    </div>
+                    <label class="layui-form-label">DB_port</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="DB_port"
+                        autocomplete="off"
+                        class="layui-input"
+                      />
+                    </div>
                   </div>
-                  <label class="layui-form-label">DB_port</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="DB_port"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required|number"
-                    />
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">test_node_IP</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="test_node_IP"
+                        autocomplete="off"
+                        class="layui-input"
+                      />
+                    </div>
+                    <label class="layui-form-label">test_node_username</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="test_node_username"
+                        autocomplete="off"
+                        class="layui-input"
+                      />
+                    </div>
+                    <label class="layui-form-label">test_node_password</label>
+                    <div class="layui-input-inline">
+                      <input
+                        type="text"
+                        placeholder="请输入正确值"
+                        name="test_node_password"
+                        autocomplete="off"
+                        class="layui-input"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div class="layui-form-item">
-                  <label class="layui-form-label">test_node_IP</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="test_node_IP"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required|ip"
-                    />
+                  <div class="layui-form-item">
+                    <button
+                        type="button"
+                        class="layui-btn layui-btn-fluid layui-btn-radius"
+                        lay-filter="spof"
+                        lay-submit
+                        step_number="1"
+                    >                   <!-- Add the step_number = 2 (next) -->
+                      Previous
+                    </button>
                   </div>
-                  <label class="layui-form-label">test_node_username</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="test_node_username"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required"
-                    />
+                  <div class="layui-form-item">
+                    <button
+                        type="submit"
+                        class="layui-btn layui-btn-fluid layui-btn-radius1"
+                        lay-filter="spof"
+                        lay-submit
+                    ><!-- radius1區分summit、previous/next按鈕之間的區別 -->
+                      Create
+                    </button>
+                    <!--						<button type="reset" class="layui-btn" >重置</button>-->
                   </div>
-                  <label class="layui-form-label">test_node_password</label>
-                  <div class="layui-input-inline">
-                    <input
-                      type="text"
-                      placeholder="请输入正确值"
-                      name="test_node_password"
-                      autocomplete="off"
-                      class="layui-input"
-                      lay-verify="required"
-                    />
-                  </div>
-                </div>
-                <div class="layui-form-item">
-                  <button
-                    type="submit"
-                    class="layui-btn layui-btn-fluid layui-btn-radius"
-                    lay-filter="spof"
-                    lay-submit
-                  >
-                    Create
-                  </button>
-                  <!--						<button type="reset" class="layui-btn" >重置</button>-->
-                </div>
+                </section><!-- Add the section for Step 2 Content -->
               </form>
             </fieldset>
           </div>
@@ -240,6 +263,7 @@
     <script src="{{ url_for('static',filename='layui/layui.all.js') }}"></script>
     <script src="{{ url_for('static',filename='layui/dist/xm-select.js') }}"></script>
     <script src="{{ url_for('static',filename='personal/js/multiple-select.js') }}"></script>
+    <script src="{{ url_for('static',filename='personal/js/multiple-step.js') }}"></script><!-- multiple-step.js-->
     <script
       type="text/javascript"
       src="{{url_for('static',filename='personal/js/basic-sundry.js')}}"
